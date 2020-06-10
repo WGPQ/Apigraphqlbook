@@ -1,0 +1,27 @@
+# TYPE SYSTEM
+# int, Float, Boolean, ID
+
+type Book{
+id: Int!
+autor: String!
+title: String!
+}
+ input Bookinput{
+autor: String!
+title: String! 
+ }
+input updateBook{
+id: Int!
+autor: String!
+title: String! 
+}
+type Query{
+    book(id: Int): [Book]
+}
+#Mutation
+type Mutation{
+    createBook(book: Bookinput):Boolean
+    updateBookInfo(book: updateBook):Boolean
+    deleteBook(id: Int):Boolean
+      
+}
