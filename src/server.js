@@ -14,7 +14,7 @@ const server = express();
 const typeDefs = importSchema('./schema.graphql')
 //const resolvers = {}
 const { resolvers } = require('./resolvers');
-
+//  "dev": "nodemon ./src/server.js"
 const schema = makeExecutableSchema({
     typeDefs,
     resolvers
