@@ -7,10 +7,10 @@ const { graphqlExpress, graphiqlExpress } = require('graphql-server-express');
 
 
 const { db } = require("./db/database")
-const PORT = 3001;
+const port = 3001;
 const endPoint = "/book_api";
 const server = express();
-
+express.set('port', process.env.PORT || port);
 const typeDefs = importSchema('./schema.graphql')
 //const resolvers = {}
 const { resolvers } = require('./resolvers');
@@ -29,6 +29,6 @@ server.use('/graphiql', graphiqlExpress({
 }));
 
 server.listen(PORT, () => {
-    console.log("GraphQL API listen int http://localhost: " + PORT + endPoint);
-    console.log("GraphiQL listen in http://localhost:" + PORT + "/graphiql");
+    console.log("GraphQL API listen int http://localhost: " + port + endPoint);
+    console.log("GraphiQL listen in http://localhost:" + port + "/graphiql");
 });
